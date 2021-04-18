@@ -1,0 +1,85 @@
+﻿<Window x:Class="HexEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HexEditor"
+        xmlns:vm="clr-namespace:HexEditor.ViewModel"
+        mc:Ignorable="d"
+        Title="HexEditor" Height="750" Width="900">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="0.08*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Label,UpdateSourceTrigger=PropertyChanged}" FontSize="21"></Label>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding OpenFileButton}" Margin="5">Открыть файл</Button>
+            <Button Grid.Column="1" Command="{Binding CheckButton}" Margin="5">Пересчет чек суммы</Button>
+            <Button Grid.Column="2"  Command="{Binding SaveButton}" Margin="5">Сохранить</Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid CanUserResizeRows="False" CanUserAddRows="False"  CanUserResizeColumns="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectedItem="{Binding Cell}" ItemsSource="{Binding CellList,UpdateSourceTrigger=PropertyChanged}" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=hex}"  Header="Hex"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_00}" Header="00"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_01}" Header="01"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_02}" Header="02"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_03}" Header="03"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_04}" Header="04"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_05}" Header="05"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_06}" Header="06"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_07}" Header="07"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_08}" Header="08"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_09}" Header="09"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0A}" Header="0A"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0B}" Header="0B"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0C}" Header="0C"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0D}" Header="0D"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0F}" Header="0F"></DataGridTextColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid CanUserResizeRows="False" CanUserAddRows="False"  CanUserResizeColumns="False" CanUserDeleteRows="False" Grid.Column="1" AutoGenerateColumns="False" SelectedItem="{Binding SecondCell}" ItemsSource="{Binding SecondCellList}" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=hex}"  Header="Hex"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_00}" Header="00"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_01}" Header="01"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_02}" Header="02"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_03}" Header="03"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_04}" Header="04"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_05}" Header="05"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_06}" Header="06"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_07}" Header="07"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_08}" Header="08"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_09}" Header="09"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0A}" Header="0A"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0B}" Header="0B"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0C}" Header="0C"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0D}" Header="0D"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=_0F}" Header="0F"></DataGridTextColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+
+    </Grid>
+</Window>
